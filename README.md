@@ -11,9 +11,9 @@ Porém, resolvi criar uma aplicação mais completa (ainda que básica) para pra
 
 ## 🎥 Demonstração da Aplicação
 
-[![Demonstração do Sistema](https://img.shields.io/badge/Ver%20Demonstração-▶️-red?style=for-the-badge)](https://imgur.com/a/oficina-mec-nica-dezm1bL)
+![Demonstração do Sistema](https://imgur.com/a/oficina-mec-nica-dezm1bL)
 
-*Clique no link acima para ver o vídeo demonstrando todas as funcionalidades da aplicação*
+*Demonstração completa das funcionalidades da aplicação*
 
 ## 🚀 Funcionalidades Implementadas
 
