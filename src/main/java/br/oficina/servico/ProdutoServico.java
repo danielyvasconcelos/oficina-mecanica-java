@@ -74,5 +74,8 @@ public class ProdutoServico {
         if (produto.getQuantidadeEstoque() < 0) {
             throw new IllegalArgumentException("Quantidade em estoque não pode ser negativa");
         }
+        if (produto.getCategoria() == null || produto.getCategoria().trim().isEmpty()) {
+            throw new IllegalArgumentException("Categoria é obrigatória");
+        }
     }
 }
