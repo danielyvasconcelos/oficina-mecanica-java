@@ -21,13 +21,13 @@ public class PopularBanco {
         try {
             // Criar clientes
             System.out.println("\n1. CADASTRANDO CLIENTES...");
-            Cliente cliente1 = clienteServico.cadastrar(new Cliente("João Silva", "(11) 99999-1111", "joao@email.com", "Rua A, 123"));
+            Cliente cliente1 = clienteServico.cadastrar(new Cliente("Estela Luna", "(11) 99999-1111", "luna@email.com", "Rua A, 123"));
             System.out.println("✓ Cliente 1 cadastrado: " + cliente1.getNome() + " [ID: " + cliente1.getId() + "]");
             
-            Cliente cliente2 = clienteServico.cadastrar(new Cliente("Maria Santos", "(11) 99999-2222", "maria@email.com", "Rua B, 456"));
+            Cliente cliente2 = clienteServico.cadastrar(new Cliente("Ana Carolina", "(11) 99999-2222", "carol@email.com", "Rua B, 456"));
             System.out.println("✓ Cliente 2 cadastrado: " + cliente2.getNome() + " [ID: " + cliente2.getId() + "]");
             
-            Cliente cliente3 = clienteServico.cadastrar(new Cliente("Pedro Costa", "(11) 99999-3333", "pedro@email.com", "Rua C, 789"));
+            Cliente cliente3 = clienteServico.cadastrar(new Cliente("Pedro Cunha", "(11) 99999-3333", "pedro@email.com", "Rua C, 789"));
             System.out.println("✓ Cliente 3 cadastrado: " + cliente3.getNome() + " [ID: " + cliente3.getId() + "]");
             
             // Criar produtos
