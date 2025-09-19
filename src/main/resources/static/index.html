@@ -30,24 +30,23 @@
                 <div class="stats-grid">
                     <div class="stat-card blue">
                         <h3>Clientes</h3>
-                        <span class="stat-number">0</span>
+                        <span class="stat-number" id="total-clientes">0</span>
                     </div>
                     <div class="stat-card green">
                         <h3>Produtos</h3>
-                        <span class="stat-number">0</span>
+                        <span class="stat-number" id="total-produtos">0</span>
                     </div>
                     <div class="stat-card purple">
                         <h3>Vendas</h3>
-                        <span class="stat-number">0</span>
+                        <span class="stat-number" id="total-vendas">0</span>
                     </div>
                     <div class="stat-card orange">
                         <h3>Faturamento</h3>
-                        <span class="stat-number">R$ 0,00</span>
+                        <span class="stat-number" id="faturamento-total">R$ 0,00</span>
                     </div>
                 </div>
             </section>
 
-            <!-- Clientes -->
             <section id="clientes" class="page">
                 <header class="page-header">
                     <h1>Clientes</h1>
@@ -56,26 +55,26 @@
                     <div class="form-section">
                         <div class="card">
                             <h3>Cadastro de Cliente</h3>
-                            <form id="clienteForm">
+                            <form id="cliente-form" onsubmit="cadastrarCliente(event)">
                                 <div class="form-group">
-                                    <label for="clienteNome">Nome</label>
-                                    <input type="text" id="clienteNome" required>
+                                    <label for="nome">Nome</label>
+                                    <input type="text" name="nome" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="clienteEmail">Email</label>
-                                    <input type="email" id="clienteEmail" required>
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="clienteTelefone">Telefone</label>
-                                    <input type="tel" id="clienteTelefone" required>
+                                    <label for="telefone">Telefone</label>
+                                    <input type="tel" name="telefone" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="clienteEndereco">Endereço</label>
-                                    <input type="text" id="clienteEndereco" required>
+                                    <label for="endereco">Endereço</label>
+                                    <input type="text" name="endereco" required>
                                 </div>
                                 <div class="form-actions">
                                     <button type="submit" class="btn btn-primary">Salvar</button>
-                                    <button type="button" class="btn btn-secondary" onclick="clearForm('clienteForm')">Limpar</button>
+                                    <button type="button" class="btn btn-secondary" onclick="clearForm('cliente-form')">Limpar</button>
                                 </div>
                             </form>
                         </div>
@@ -84,13 +83,13 @@
                         <div class="card">
                             <h3>Lista de Clientes</h3>
                             <div class="table-container">
-                                <table id="clientesTable">
+                                <table id="clientes">
                                     <thead>
                                         <tr>
                                             <th>Nome</th>
                                             <th>Email</th>
                                             <th>Telefone</th>
-                                            <th>Ações</th>
+                                            <th>Endereço</th>
                                         </tr>
                                     </thead>
                                     <tbody></tbody>
@@ -110,30 +109,30 @@
                     <div class="form-section">
                         <div class="card">
                             <h3>Cadastro de Produto</h3>
-                            <form id="produtoForm">
+                            <form id="produto-form" onsubmit="cadastrarProduto(event)">
                                 <div class="form-group">
-                                    <label for="produtoNome">Nome</label>
-                                    <input type="text" id="produtoNome" required>
+                                    <label for="nome">Nome</label>
+                                    <input type="text" name="nome" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="produtoDescricao">Descrição</label>
-                                    <textarea id="produtoDescricao" rows="3"></textarea>
+                                    <label for="descricao">Descrição</label>
+                                    <textarea name="descricao" rows="3"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="produtoPreco">Preço</label>
-                                    <input type="number" id="produtoPreco" step="0.01" min="0" required>
+                                    <label for="preco">Preço</label>
+                                    <input type="number" name="preco" step="0.01" min="0" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="produtoEstoque">Quantidade em Estoque</label>
-                                    <input type="number" id="produtoEstoque" min="0" required>
+                                    <label for="quantidadeEstoque">Quantidade em Estoque</label>
+                                    <input type="number" name="quantidadeEstoque" min="0" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="produtoCategoria">Categoria</label>
-                                    <input type="text" id="produtoCategoria" required>
+                                    <label for="categoria">Categoria</label>
+                                    <input type="text" name="categoria" required>
                                 </div>
                                 <div class="form-actions">
                                     <button type="submit" class="btn btn-primary">Salvar</button>
-                                    <button type="button" class="btn btn-secondary" onclick="clearForm('produtoForm')">Limpar</button>
+                                    <button type="button" class="btn btn-secondary" onclick="clearForm('produto-form')">Limpar</button>
                                 </div>
                             </form>
                         </div>
@@ -142,14 +141,13 @@
                         <div class="card">
                             <h3>Lista de Produtos</h3>
                             <div class="table-container">
-                                <table id="produtosTable">
+                                <table id="produtos">
                                     <thead>
                                         <tr>
                                             <th>Nome</th>
+                                            <th>Categoria</th>
                                             <th>Preço</th>
                                             <th>Estoque</th>
-                                            <th>Categoria</th>
-                                            <th>Ações</th>
                                         </tr>
                                     </thead>
                                     <tbody></tbody>
@@ -168,13 +166,13 @@
                 <div class="card">
                     <h3>Lista de Vendas</h3>
                     <div class="table-container">
-                        <table id="vendasTable">
+                        <table id="vendas">
                             <thead>
                                 <tr>
                                     <th>Data</th>
                                     <th>Cliente</th>
+                                    <th>Itens</th>
                                     <th>Valor Total</th>
-                                    <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
