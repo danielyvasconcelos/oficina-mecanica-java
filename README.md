@@ -11,7 +11,7 @@ Porém, resolvi criar uma aplicação mais completa (ainda que básica) para pra
 
 ## 🎥 Demonstração da Aplicação
 
-![Demonstração do Sistema](https://imgur.com/a/oficina-mec-nica-dezm1bL)
+![Demonstração do Sistema](https://imgur.com/a/dezm1bL)
 
 *Demonstração completa das funcionalidades da aplicação*
 
@@ -101,9 +101,9 @@ http://localhost:8080
 ## 📊 Dados de Exemplo
 
 O sistema é populado automaticamente com:
-- **3 Clientes**: Estela Luna, Ana Carolina, Pedro Cunha
-- **3 Produtos**: Óleo Motor 5W30, Filtro de Ar, Pastilha de Freio
-- **3 Vendas**: Transações completas com controle de estoque
+- **3 Clientes**
+- **3 Produtos**
+- **3 Vendas**
 
 ## 🧪 Testes
 
