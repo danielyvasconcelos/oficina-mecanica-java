@@ -20,15 +20,19 @@ public class VendaServico {
     }
     
     public Venda processar(Venda venda) {
+        System.out.println("[VendaServico] Iniciando processamento da venda...");
         validarVenda(venda);
         
         // Verificar se cliente existe
+        System.out.println("[VendaServico] Verificando se cliente existe: " + venda.getClienteId());
         clienteServico.buscarPorId(venda.getClienteId());
         
         // Verificar estoque e calcular total
+        System.out.println("[VendaServico] Verificando estoque e calculando total...");
         double valorTotal = 0;
         for (Venda.ItemVenda item : venda.getItens()) {
             Produto produto = produtoServico.buscarPorId(item.getProdutoId());
+            System.out.println("[VendaServico] Verificando produto: " + produto.getNome() + " (Qtd: " + item.getQuantidade() + ")");
             
             if (!produtoServico.verificarEstoque(item.getProdutoId(), item.getQuantidade())) {
                 throw new IllegalArgumentException("Estoque insuficiente para: " + produto.getNome());
@@ -41,15 +45,19 @@ public class VendaServico {
         
         venda.setValorTotal(valorTotal);
         venda.setDataVenda(LocalDateTime.now());
+        System.out.println("[VendaServico] Valor total calculado: R$" + valorTotal);
         
         // Salvar venda
+        System.out.println("[VendaServico] Salvando venda no banco...");
         Venda vendaSalva = repositorio.salvar(venda);
         
         // Reduzir estoque
+        System.out.println("[VendaServico] Reduzindo estoque dos produtos...");
         for (Venda.ItemVenda item : venda.getItens()) {
             produtoServico.reduzirEstoque(item.getProdutoId(), item.getQuantidade());
         }
         
+        System.out.println("[VendaServico] Venda processada com sucesso! ID: " + vendaSalva.getId());
         return vendaSalva;
     }
     

@@ -14,8 +14,12 @@ public class ProdutoServico {
     }
     
     public Produto cadastrar(Produto produto) {
+        System.out.println("[ProdutoServico] Validando produto: " + produto.getNome());
         validarProduto(produto);
-        return repositorio.salvar(produto);
+        System.out.println("[ProdutoServico] Salvando produto no banco...");
+        Produto produtoSalvo = repositorio.salvar(produto);
+        System.out.println("[ProdutoServico] Produto salvo com ID: " + produtoSalvo.getId());
+        return produtoSalvo;
     }
     
     public Produto buscarPorId(ObjectId id) {

@@ -20,9 +20,12 @@ public class ProdutoRepositorio {
     }
     
     public Produto salvar(Produto produto) {
+        System.out.println("[ProdutoRepositorio] Convertendo produto para documento...");
         Document doc = ConversorDocumento.produtoParaDocumento(produto);
+        System.out.println("[ProdutoRepositorio] Inserindo no MongoDB...");
         colecao.insertOne(doc);
         produto.setId(doc.getObjectId("_id"));
+        System.out.println("[ProdutoRepositorio] Produto inserido com ID: " + produto.getId());
         return produto;
     }
     

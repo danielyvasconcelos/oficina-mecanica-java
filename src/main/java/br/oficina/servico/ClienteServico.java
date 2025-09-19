@@ -14,13 +14,18 @@ public class ClienteServico {
     }
     
     public Cliente cadastrar(Cliente cliente) {
+        System.out.println("[ClienteServico] Validando cliente: " + cliente.getNome());
         validarCliente(cliente);
         
+        System.out.println("[ClienteServico] Verificando email duplicado...");
         if (repositorio.buscarPorEmail(cliente.getEmail()) != null) {
             throw new IllegalArgumentException("Email já cadastrado");
         }
         
-        return repositorio.salvar(cliente);
+        System.out.println("[ClienteServico] Salvando cliente no banco...");
+        Cliente clienteSalvo = repositorio.salvar(cliente);
+        System.out.println("[ClienteServico] Cliente salvo com ID: " + clienteSalvo.getId());
+        return clienteSalvo;
     }
     
     public Cliente buscarPorId(ObjectId id) {
